@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>POPO Website</title>
+
+  <!-- FONT (must be inside head) -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-badge">⚡</div>
+        <span>POPO Project</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="theory.html">Theory</a>
+        <a href="results.html">Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="container hero">
+    <div class="hero-card">
+      <h1>POPO — Plastic Out, Planet Optimized!</h1>
+
+      <p class="sub">
+        POPO is an eco-friendly bioplastic made from banana peels.
+        Our project focuses on reducing plastic pollution by transforming
+        organic waste into a sustainable alternative.
+      </p>
+
+      <div class="btns">
+        <a class="btn primary" href="about.html">What is POPO?</a>
+        <a class="btn" href="theory.html">Our Theory</a>
+        <a class="btn" href="results.html">Results</a>
+      </div>
+    </div>
+
+    <!-- QUICK SECTIONS -->
+    <section class="section">
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>About</h3>
+          <p>What POPO is, who made it, and our mission to reduce plastic waste.</p>
+          <span class="tag">team</span>
+          <span class="tag">project</span>
+        </div>
+
+        <div class="card">
+          <h3>Theory</h3>
+          <p>Biology, chemistry, physics, and computer science inside our project.</p>
+          <span class="tag">Biology</span>
+          <span class="tag">Chemistry</span>
+          <span class="tag">Physics</span>
+          <span class="tag">Computer Science</span>
+        </div>
+
+        <div class="card">
+          <h3>Results</h3>
+          <p>Our bioplastic experiment outcomes and findings.</p>
+          <span class="tag">bioplastic</span>
+          <span class="tag">summary</span>
+        </div>
+      </div>
+    </section>
+
+   <!-- BANANA RATING -->
+<section class="section">
+  <div class="card" id="rating">
+    <h2>What do you think about this project?</h2>
+    <p>Click the bananas to rate POPO 🍌</p>
+
+    <div class="banana-rating">
+      <span class="banana" data-value="1">🍌</span>
+      <span class="banana" data-value="2">🍌</span>
+      <span class="banana" data-value="3">🍌</span>
+      <span class="banana" data-value="4">🍌</span>
+      <span class="banana" data-value="5">🍌</span>
+    </div>
+
+    <p id="rating-text" style="margin-top:10px; font-weight:700;">
+      No rating yet
+    </p>
+
+    <!-- SUBMIT BUTTON -->
+    <button id="submit-rating" class="btn primary" style="margin-top:12px;">
+      Submit Rating
+    </button>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="footer">
+    © POPO Project
+  </footer>
+
+  <!-- SCRIPT must be at the end (so bananas exist first) -->
+  <script>
+  const bananas = document.querySelectorAll(".banana");
+  const text = document.getElementById("rating-text");
+  const submitBtn = document.getElementById("submit-rating");
+
+  let currentRating = 0;
+
+  bananas.forEach((banana, index) => {
+    banana.addEventListener("click", () => {
+      currentRating = index + 1;
+
+      bananas.forEach((b, i) => {
+        b.classList.toggle("active", i < currentRating);
+      });
+
+      text.textContent = `You rated POPO: ${currentRating} / 5 bananas 🍌`;
+    });
+  });
+
+  submitBtn.addEventListener("click", () => {
+    if (currentRating === 0) {
+      alert("Please select a rating first 🍌");
+      return;
+    }
+
+    // Fake submit (no saving)
+    text.textContent = "Thanks for your feedback! 🍌💚";
+
+    // Reset bananas
+    bananas.forEach(b => b.classList.remove("active"));
+    currentRating = 0;
+
+    // Reset text after 2 seconds
+    setTimeout(() => {
+      text.textContent = "No rating yet";
+    }, 2000);
+  });
+</script>
+
+
+</body>
+</html>

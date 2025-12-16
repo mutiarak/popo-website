@@ -1,0 +1,217 @@
+/* ===== POPO PALETTE ===== */
+:root{
+  --cream: #FFF6D8;
+  --yellow: #F7D046;
+  --gold: #D4A62A;
+  --green: #6F8F3E;
+  --olive: #8FAE4A;
+  --brown: #6B3F1D;
+  --darkbrown: #3F2412;
+  --white: #ffffff;
+}
+
+/* ===== BASE / RESET ===== */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: "Baloo 2", system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--darkbrown);
+  line-height: 1.6;
+}
+
+/* Paksa semua teks biar ga jadi abu-abu */
+p, li, .sub, .card p, .footer, a, span {
+  color: var(--darkbrown);
+  opacity: 1;
+}
+
+/* ===== LAYOUT ===== */
+.container {
+  width: min(1000px, 92%);
+  margin: 0 auto;
+}
+
+.section { padding: 42px 0; }
+
+/* ===== NAVBAR ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--green);
+  border-bottom: 4px solid var(--gold);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: var(--darkbrown);
+}
+
+/* icon kiri */
+.brand-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: var(--yellow);
+  border: 2px solid var(--gold);
+  display: grid;
+  place-items: center;
+}
+
+/* link navbar */
+.nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.nav a {
+  color: var(--cream);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.nav a:hover { background: rgba(255,255,255,0.18); }
+
+/* ===== HERO ===== */
+.hero { padding: 54px 0 28px; }
+
+.hero-card {
+  border: 3px solid var(--gold);
+  background: rgba(143, 174, 74, 0.25); /* olive transparent */
+  border-radius: 18px;
+  padding: 26px;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.15;
+  color: var(--darkbrown);
+}
+
+/* Deskripsi di hero */
+.sub {
+  margin: 0 0 18px;
+  color: var(--darkbrown);
+  max-width: 70ch;
+  opacity: 1;
+}
+
+/* ===== BUTTONS ===== */
+.btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 2px solid var(--gold);
+  background: rgba(255, 246, 216, 0.7);
+  color: var(--darkbrown);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.btn.primary {
+  background: var(--yellow);
+  border-color: var(--gold);
+  color: var(--darkbrown);
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+/* ===== CARDS / GRID ===== */
+.grid { display: grid; gap: 14px; }
+
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+@media (max-width: 820px){
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+
+.card {
+  border: 3px solid var(--gold);
+  background: var(--olive);
+  border-radius: 18px;
+  padding: 18px;
+  color: var(--darkbrown);
+}
+
+.card h2, .card h3 {
+  margin: 0 0 10px;
+  color: var(--darkbrown);
+}
+
+.card p {
+  margin: 0;
+  color: var(--darkbrown);
+  opacity: 1;
+}
+
+/* tags jadi kuning-coklat */
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(247, 208, 70, 0.7);
+  border: 2px solid var(--gold);
+  margin-right: 6px;
+  margin-top: 8px;
+  color: var(--darkbrown);
+  font-weight: 800;
+}
+
+/* ===== IMAGE ===== */
+.hero-img {
+  width: 100%;
+  border-radius: 16px;
+  border: 3px solid var(--gold);
+  margin-top: 14px;
+  display: block;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 26px 0 40px;
+  color: var(--darkbrown);
+  text-align: center;
+  border-top: 3px solid var(--gold);
+  margin-top: 22px;
+  opacity: 1;
+}
+
+
+/* ===== BANANA RATING ===== */
+.banana-rating {
+  font-size: 34px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.banana {
+  opacity: 0.4;
+  transition: transform 0.15s, opacity 0.15s;
+}
+
+.banana:hover {
+  transform: scale(1.2);
+}
+
+.banana.active {
+  opacity: 1;
+}
